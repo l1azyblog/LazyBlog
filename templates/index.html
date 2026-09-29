@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}lazyblog — Samandar Tuychiyev{% endblock %}
+
+{% block content %}
+
+<section class="hero page-section">
+    <div class="section-label">who</div>
+
+    <h1>
+        I’m Samandar<br>
+        Tuychiyev.
+    </h1>
+</section>
+
+<section class="intro page-section">
+    <div class="section-label">what</div>
+
+    <div class="intro-grid">
+        <div class="intro-copy">
+            <p class="large-copy">
+                A software engineer, bachelor student at Turin Polytechnic
+                University in Tashkent, and UI/UX researcher with a passion
+                for discovery and growth.
+            </p>
+
+            <p class="large-copy">
+                Interested in brainrot games, basketball, and running marathons.
+                On this blog, I share my perspectives, lessons learned, and
+                ideas that shape my journey.
+            </p>
+        </div>
+
+        <ol class="facts">
+            <li>software engineer</li>
+            <li>UI/UX researcher</li>
+            <li>Turin Polytechnic University</li>
+            <li>Tashkent, Uzbekistan</li>
+            <li>brainrot games</li>
+            <li>basketball</li>
+            <li>marathon running</li>
+        </ol>
+    </div>
+</section>
+
+<section class="links-section page-section">
+    <div class="section-label">links</div>
+
+    <div class="social-links">
+        <a href="https://t.me/throok" target="_blank">telegram ↗</a>
+        <a href="https://uz.linkedin.com/in/lazyblog" target="_blank">linkedin ↗</a>
+        <a href="https://x.com/a1n0nymous" target="_blank">x ↗</a>
+        <a href="mailto:tuychiyev.samandar@turin.uz">email ↗</a>
+        <span class="muted-link">cv ↗</span>
+    </div>
+</section>
+
+{% if featured_posts %}
+<section class="featured-section page-section">
+    <div class="section-label">featured posts</div>
+
+    <div class="featured-grid">
+        {% for post in featured_posts %}
+        <a class="featured-card" href="/post/{{ post.slug }}">
+            {% if post.image %}
+            <div class="card-image">
+                <img src="{{ post.image }}" alt="{{ post.title }}">
+            </div>
+            {% else %}
+            <div class="card-image card-placeholder">
+                <span>lazyblog / {{ loop.index }}</span>
+            </div>
+            {% endif %}
+
+            <div class="post-meta">
+                <span>{{ post.topic }}</span>
+                <span>{{ post.date }}</span>
+            </div>
+
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.subtitle }}</p>
+
+            <span class="read-link">read post ↗</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="posts-section page-section">
+    <div class="section-label">all posts</div>
+
+    <div class="post-list">
+        {% for post in posts %}
+        <a class="post-row" href="/post/{{ post.slug }}">
+            <span class="post-number">
+                {{ "%02d" | format(loop.index) }}
+            </span>
+
+            <span class="post-title">{{ post.title }}</span>
+
+            <span class="post-topic">{{ post.topic }}</span>
+
+            <span class="post-date">{{ post.date }}</span>
+
+            <span class="arrow">↗</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="off-blog page-section">
+    <div class="section-label">off the blog</div>
+
+    <div class="off-blog-content">
+        <h2>
+            A small archive of thoughts,
+            experiments, and things
+            I’m currently exploring.
+        </h2>
+
+        <p>
+            Design, technology, learning, games, movement, and everything
+            in between.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — lazyblog{% endblock %}
+
+{% block content %}
+
+<article class="article page-section">
+
+    <div class="article-top">
+        <a href="/all-posts" class="back-link">← all posts</a>
+
+        <div class="article-meta">
+            <span>{{ post.topic }}</span>
+            <span>{{ post.date }}</span>
+        </div>
+    </div>
+
+    <div class="article-heading">
+        <div class="section-label">post</div>
+
+        <h1>{{ post.title }}</h1>
+        <p class="article-subtitle">{{ post.subtitle }}</p>
+    </div>
+
+    {% if post.image %}
+    <img class="article-image" src="{{ post.image }}" alt="{{ post.title }}">
+    {% endif %}
+
+    <div class="article-layout">
+        <aside class="article-aside">
+            <span>by</span>
+            <strong>Samandar<br>Tuychiyev</strong>
+        </aside>
+
+        <div class="article-body">
+            {% for paragraph in post.content %}
+                {% if loop.index == 1 %}
+                    <p class="lead">{{ paragraph }}</p>
+                {% else %}
+                    <p>{{ paragraph }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <a class="source-link" href="{{ post.source }}" target="_blank">
+                original source ↗
+            </a>
+        </div>
+    </div>
+
+    <div class="article-navigation">
+        {% if previous_post %}
+        <a href="/post/{{ previous_post.slug }}">
+            <span>previous</span>
+            {{ previous_post.title }} ↗
+        </a>
+        {% endif %}
+
+        {% if next_post %}
+        <a href="/post/{{ next_post.slug }}">
+            <span>next</span>
+            {{ next_post.title }} ↗
+        </a>
+        {% endif %}
+    </div>
+
+</article>
+
+{% endblock %}

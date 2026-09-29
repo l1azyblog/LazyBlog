@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}lazyblog{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <a class="wordmark" href="/">lazyblog</a>
+
+        <nav class="main-nav">
+            <a href="/all-posts">posts</a>
+            <a href="/">about</a>
+            <a href="mailto:tuychiyev.samandar@turin.uz">contact</a>
+            <span class="muted-link">cv ↗</span>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <span class="footer-label">Samandar Tuychiyev</span>
+            <p class="footer-note">have a good day</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="/">home</a>
+            <a href="/all-posts">all posts</a>
+            <a href="mailto:tuychiyev.samandar@turin.uz">email</a>
+            <a href="https://t.me/throok" target="_blank">telegram ↗</a>
+        </div>
+
+        <div class="copyright">
+            ©lazyblog
+        </div>
+    </footer>
+
+</body>
+</html>
