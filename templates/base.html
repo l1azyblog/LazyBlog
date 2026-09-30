@@ -11,12 +11,11 @@
 <body>
 
     <header class="site-header">
-        <a class="wordmark" href="/">lazyblog</a>
-
+        <a class="wordmark" href="{{ url_for('home') }}">lazyblog</a>
         <nav class="main-nav">
-            <a href="/all-posts">posts</a>
-            <a href="/">about</a>
-            <a href="mailto:tuychiyev.samandar@turin.uz">contact</a>
+            <a href="{{ url_for('home') }}#posts">posts</a>
+            <a href="{{ url_for('home') }}#about">about</a>
+            <a href="{{ url_for('home') }}#contact">contact</a>
             <span class="muted-link">cv ↗</span>
         </nav>
     </header>

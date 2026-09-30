@@ -6,14 +6,13 @@
 
 <section class="hero page-section">
     <div class="section-label">who</div>
-
     <h1>
         I’m Samandar<br>
         Tuychiyev.
     </h1>
 </section>
 
-<section class="intro page-section">
+<section id="about" class="intro page-section">
     <div class="section-label">what</div>
 
     <div class="intro-grid">
@@ -43,7 +42,7 @@
     </div>
 </section>
 
-<section class="links-section page-section">
+<section id="contact" class="links-section page-section">
     <div class="section-label">links</div>
 
     <div class="social-links">
@@ -56,7 +55,7 @@
 </section>
 
 {% if featured_posts %}
-<section class="featured-section page-section">
+<section id="posts" class="featured-section page-section">
     <div class="section-label">featured posts</div>
 
     <div class="featured-grid">
@@ -88,7 +87,7 @@
 {% endif %}
 
 <section class="posts-section page-section">
-    <div class="section-label">all posts</div>
+    <div class="section-label">posts</div>
 
     <div class="post-list">
         {% for post in posts %}
